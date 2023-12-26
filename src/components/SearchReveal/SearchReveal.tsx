@@ -1,4 +1,4 @@
-import { StarshipsResult } from "@/types/StarShipsResults"
+import { StarshipsResult } from "@/types/StarshipsResult"
 type Props = {
     response: StarshipsResult
 }

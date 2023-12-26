@@ -3,9 +3,8 @@ import { useState } from "react";
 import * as api from '@/api/starships';
 import { SearchForm } from "../SearchForm/SearchForm";
 import { SearchReveal } from "../SearchReveal/SearchReveal";
-import { Starship } from "@/types/Starship";
 import { calculateStops } from "@/utils/calculateStops";
-import { StarshipsResult } from "@/types/StarShipsResults";
+import { StarshipsResult } from "@/types/StarshipsResult";
 
 
 export const Search = () => {

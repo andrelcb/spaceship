@@ -1,5 +1,5 @@
 import { req } from '@/api/axios';
-import { StarshipsResult } from '@/types/StarShipsResults';
+import { StarshipsResult } from '@/types/StarshipsResult';
 import { Starship } from '@/types/Starship';
 
 
