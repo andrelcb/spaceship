@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import { SearchForm } from "./SearchForm";
-import { act } from "react-dom/test-utils";
 
 
 describe('<SearchForm />', () => {

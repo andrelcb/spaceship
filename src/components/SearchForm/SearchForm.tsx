@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react"
 import Input from "../Input";
+import { Button } from "../Button";
 
 type Props = {
     onSearchButton: (mglt: number) => void;
@@ -37,12 +38,14 @@ export const SearchForm = ({ onSearchButton, loading }: Props) => {
                 onChange={handleInputChange}
             />
 
-            <button className={`w-full p-3 mt-3 rounded-lg text-white text-4xl bg-blue-900 border-b-4 border-blue-600 active:border-0 disabled:opacity-50 ${!isInputValid && 'cursor-not-allowed opacity-50'}`}
+            <Button 
                 onClick={handleButtonClick}
+                isLoading={loading}
+                isInputValid={isInputValid}
                 disabled={!isInputValid || loading}
             >
-                {loading ? 'Buscando...' : 'Calcular'}
-            </button>
+                Calcular
+            </Button>
         </div>
     )
 }
