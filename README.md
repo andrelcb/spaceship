@@ -1,5 +1,6 @@
 ## How to install:
-Make sure you have installed node js on your machine https://nodejs.org/en
+Make sure you have installed node js on your machine https://nodejs.org/en.
+
 To start the project, it's very simple, just carry out the commands
 
 ```bash
