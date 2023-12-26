@@ -4,21 +4,31 @@ import * as api from '@/api/starships';
 import { SearchForm } from "./SearchForm";
 import { SearchReveal } from "./SearchReveal";
 import { Starship } from "@/types/Starship";
+import { calculateStops } from "@/utils/calculateStops";
 
 
 export const Search = () => {
     const [results, setResults] = useState<Starship[]>();
+    const [loading, setLoading] = useState(false);
 
-    const handleSearchButton = async (mglt: number) => {
-        if (!mglt) return;
+    const handleSearchButton = async (distanceMglt: number) => {
+        if (!distanceMglt) return;
+        setLoading(true);
         const json = await api.getAllStarship();
-        if (!json) return alert('Desculpe.');
+        setLoading(false);
+        if (!json) return alert('Desculpe não foi encontrado nenhuma Espaçonave.');
+
+        calculateStops(distanceMglt, json)
         setResults(json);
 
     }
     return (
-        <section className="bg-gray-900 p-5 rounded">
-            {!results && <SearchForm onSearchButton={handleSearchButton} />}
+        <section className="my-10">
+            {!results && <SearchForm
+                onSearchButton={handleSearchButton}
+                loading={loading}
+            />
+            }
             {results && <SearchReveal results={results} />}
         </section>
     )

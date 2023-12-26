@@ -16,4 +16,5 @@ export type Starship = {
     created: Date,
     edited: Date,
     url: string,
+    required_stop: number
 }
