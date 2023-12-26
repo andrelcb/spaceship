@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react";
 import * as api from '@/api/starships';
-import { SearchForm } from "./SearchForm";
-import { SearchReveal } from "./SearchReveal";
+import { SearchForm } from "../SearchForm/SearchForm";
+import { SearchReveal } from "../SearchReveal/SearchReveal";
 import { Starship } from "@/types/Starship";
 import { calculateStops } from "@/utils/calculateStops";
 
@@ -14,12 +14,12 @@ export const Search = () => {
     const handleSearchButton = async (distanceMglt: number) => {
         if (!distanceMglt) return;
         setLoading(true);
-        const json = await api.getAllStarship();
+        const response = await api.getAllStarship();
         setLoading(false);
-        if (!json) return alert('Desculpe não foi encontrado nenhuma Espaçonave.');
+        if (!response) return alert('Desculpe não foi encontrada nenhuma espaçonave.');
 
-        calculateStops(distanceMglt, json)
-        setResults(json);
+        calculateStops(distanceMglt, response)
+        setResults(response);
 
     }
     return (
