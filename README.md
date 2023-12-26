@@ -1,13 +1,32 @@
-## How to install:
-Make sure you have installed node js on your machine https://nodejs.org/en.
+<h1 align="center"> Spaceships </h1>
 
-To start the project, it's very simple, just carry out the commands
+🗔 Link em produção:
+
+## Welcome to Spaceships!
+
+
+## Tecnologias utilizada no teste
+- [Nextjs](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Typescript](https://www.typescriptlang.org/)
+
+
+## :closed_book: How to use it?
+
+Before starting, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
 ```bash
-npm install
-npm run dev
-```
-## You'll need:
-```readme
-NEXT_PUBLIC_BASE_API="https://swapi.dev/api/"
+# Clone this project
+$ git clone https://github.com/andrelcb/spaceship.git
+
+# access
+$ cd spaceship
+
+# install dependencies
+$ yarn or npm
+
+# Run the project
+$ yarn dev or npm run dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
