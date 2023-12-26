@@ -1,6 +1,6 @@
 <h1 align="center"> Spaceships </h1>
 
-🗔 Link em produção: [https://spaceship-kbgjn1855-andrelcb.vercel.app](https://spaceship-one.vercel.app/)
+🗔 Link em produção: https://spaceship-one.vercel.app/
 
 ## Welcome to Spaceships!
 
