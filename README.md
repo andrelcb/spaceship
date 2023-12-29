@@ -1,11 +1,11 @@
 <h1 align="center"> Spaceships </h1>
 
-🗔 Link em produção: https://spaceship-kbgjn1855-andrelcb.vercel.app
+🗔 Link in production: https://spaceship-one.vercel.app/
 
 ## Welcome to Spaceships!
 
 
-## Tecnologias utilizada no teste
+## Technologies used in the test
 - [Nextjs](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Typescript](https://www.typescriptlang.org/)
