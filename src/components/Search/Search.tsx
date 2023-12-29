@@ -16,13 +16,20 @@ export const Search = () => {
     const handleSearchButton = async (distanceMglt: number) => {
         if (!distanceMglt) return;
         setLoading(true);
-        const response = await api.getAllStarship();
-        setLoading(false);
-        if (!response) return alert('Desculpe não foi encontrada nenhuma espaçonave.');
+        try {
+            const response = await api.getAllStarship();
+            setLoading(false);
+            if (!response) return alert('Desculpe não foi encontrada nenhuma espaçonave.');
 
-        setNextPage(response.next);
-        calculateStops(distanceMglt, response.results)
-        setStarships(response);
+            setNextPage(response.next);
+            const resultsRequiredStops = calculateStops(distanceMglt, response.results)
+            // setStarships(resultsRequiredStops);
+            setStarships({ ...response, results: resultsRequiredStops })
+        } catch (error) {
+            setLoading(false);
+            console.error('Erro ao buscar as espaçonaves:', error);
+            alert('Ocorreu um erro ao buscar as espaçonaves. Por favor, tente novamente.');
+        }
 
     }
 
