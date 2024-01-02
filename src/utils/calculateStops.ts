@@ -1,10 +1,18 @@
 import { Starship } from "@/types/Starship";
+import { convertUnitToDay } from "./convertUnitToDay";
 
 export const calculateStops = (distanceMglt: number, starChips: Starship[]) => {
     return starChips.map((result) => {
-        const hours = (distanceMglt / result.MGLT);
-        const stops = hours / 24;
-        const requiredStops = Math.ceil(stops);
+        const unitInDays = convertUnitToDay(result.consumables);
+        if (!unitInDays) {
+            return {
+                ...result,
+                required_stop: 0,
+            };
+        }
+        const mgltPerDay = result.MGLT * 24;
+        const mgltPerConsumables = mgltPerDay * unitInDays;
+        const requiredStops = Math.floor(distanceMglt / mgltPerConsumables);
 
         // Retornar o objeto modificado com a propriedade 'required_stop'
         return {

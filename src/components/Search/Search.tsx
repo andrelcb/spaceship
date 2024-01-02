@@ -12,9 +12,11 @@ export const Search = () => {
     const [nextPage, setNextPage] = useState('');
     const [previousPage, setPreviousPage] = useState('');
     const [loading, setLoading] = useState(false);
+    const [distanceMglt, setDistanceMglt] = useState(0);
 
     const handleSearchButton = async (distanceMglt: number) => {
         if (!distanceMglt) return;
+        setDistanceMglt(distanceMglt);
         setLoading(true);
         try {
             const response = await api.getAllStarship();
@@ -23,7 +25,6 @@ export const Search = () => {
 
             setNextPage(response.next);
             const resultsRequiredStops = calculateStops(distanceMglt, response.results)
-            // setStarships(resultsRequiredStops);
             setStarships({ ...response, results: resultsRequiredStops })
         } catch (error) {
             setLoading(false);
@@ -42,7 +43,8 @@ export const Search = () => {
                 const response = await api.getAllStarship(parseInt(pageNumber));
                 setLoading(false);
                 if (!response) return alert('Desculpe não foi encontrada nenhuma espaçonave.');
-                setStarships(response);
+                const resultsRequiredStops = calculateStops(distanceMglt, response.results)
+                setStarships({ ...response, results: resultsRequiredStops })
                 setNextPage(response.next);
                 setPreviousPage(response.next);
             }
@@ -60,7 +62,8 @@ export const Search = () => {
                 const response = await api.getAllStarship(parseInt(pageNumber));
                 setLoading(false);
                 if (!response) return alert('Desculpe não foi encontrada nenhuma espaçonave.');
-                setStarships(response);
+                const resultsRequiredStops = calculateStops(distanceMglt, response.results)
+                setStarships({ ...response, results: resultsRequiredStops })
                 setNextPage(response.next);
                 setPreviousPage(response.previous);
             }
